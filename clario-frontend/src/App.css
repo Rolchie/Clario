@@ -1,0 +1,254 @@
+/* src/App.css */
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&family=Nunito:wght@400;500;600;700;800;900&display=swap');
+
+/* ══════════════════════════════════════════════════
+   DESIGN TOKENS
+   Dark tokens  → used by PracticePage / ResultsPage
+   Light tokens → used by PreviewPage / AuthPage / DashboardPage
+   ══════════════════════════════════════════════════ */
+:root {
+  /* ── Dark theme (legacy inner pages) ── */
+  --bg:            #0a0a0f;
+  --surface:       #12121a;
+  --surface2:      #1c1c28;
+  --border:        rgba(255,255,255,0.07);
+  --primary:       #7c6cfc;
+  --primary-light: #a99dff;
+  --accent:        #fc6c8f;
+  --green:         #4ecca3;
+  --yellow:        #ffd166;
+  --text:          #f0eeff;
+  --text-muted:    #8884a8;
+  --font-display:  'Syne', sans-serif;
+  --font-body:     'DM Sans', sans-serif;
+  --radius:        16px;
+  --radius-sm:     10px;
+  --shadow:        0 8px 40px rgba(124,108,252,0.15);
+  --sidebar-w:     220px;
+  --topbar-h:      64px;
+
+  /* ── Light theme (PreviewPage / AuthPage / Dashboard) ── */
+  --c-purple:       #5b4fcf;
+  --c-purple-mid:   #7c72e0;
+  --c-purple-light: #a99dff;
+  --c-purple-soft:  #ede9ff;
+  --c-text-dark:    #1a1a3e;
+  --c-text-mid:     #4a4a6a;
+  --c-text-muted:   #9090b8;
+  --c-border:       #e2defc;
+  --c-white:        #ffffff;
+  --c-bg:           #f5f4fb;
+  --c-green:        #22c55e;
+  --c-yellow:       #f59e0b;
+  --c-red:          #ef4444;
+  --font-nunito:    'Nunito', sans-serif;
+}
+
+/* ── Reset ── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ══════════════════════════════════════════════════
+   APP LAYOUT SHELL
+   ══════════════════════════════════════════════════ */
+.app-shell {
+  display: flex;
+  min-height: 100vh;
+}
+
+.app-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.app-content.with-sidebar {
+  margin-left: var(--sidebar-w);
+  width: calc(100% - var(--sidebar-w));
+}
+
+.app-page-area {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.app-loading {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--c-bg);
+}
+
+/* ══════════════════════════════════════════════════
+   SHARED COMPONENTS  (dark theme — inner pages)
+   ══════════════════════════════════════════════════ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  border-radius: 100px;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 15px;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(124,108,252,0.4);
+}
+.btn-primary:hover {
+  background: var(--primary-light);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(124,108,252,0.5);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--text);
+  border: 1.5px solid var(--border);
+}
+.btn-outline:hover { border-color: var(--primary); color: var(--primary); }
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text-muted);
+  padding: 10px 16px;
+  font-size: 14px;
+}
+.btn-ghost:hover { color: var(--text); }
+
+.btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none !important; }
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px;
+}
+
+.tag {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 600;
+  font-family: var(--font-display);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.tag-purple { background: rgba(124,108,252,0.15); color: var(--primary-light); }
+.tag-green  { background: rgba(78,204,163,0.15);  color: var(--green); }
+.tag-red    { background: rgba(252,108,143,0.15);  color: var(--accent); }
+.tag-yellow { background: rgba(255,209,102,0.15);  color: var(--yellow); }
+
+/* ── Navbar (dark — LandingPage/PracticePage/ResultsPage) ── */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 40px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(10,10,15,0.85);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+.navbar-logo {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--primary-light), var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  cursor: pointer;
+}
+.navbar-links { display: flex; gap: 8px; align-items: center; }
+
+/* ── Score ring ── */
+.score-ring-wrap { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.score-ring { position: relative; width: 120px; height: 120px; }
+.score-ring svg { transform: rotate(-90deg); }
+.score-ring-bg   { fill: none; stroke: var(--surface2); stroke-width: 8; }
+.score-ring-fill { fill: none; stroke-width: 8; stroke-linecap: round; transition: stroke-dashoffset 1s ease; }
+.score-ring-text {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+}
+.score-ring-text .score-num   { font-family: var(--font-display); font-size: 28px; font-weight: 800; }
+.score-ring-text .score-label { font-size: 10px; color: var(--text-muted); letter-spacing: 0.08em; text-transform: uppercase; }
+
+/* ── Waveform ── */
+.waveform { display: flex; align-items: center; gap: 4px; height: 40px; }
+.waveform-bar {
+  width: 4px; border-radius: 4px;
+  background: var(--primary);
+  animation: wave 1s ease-in-out infinite;
+}
+.waveform-bar:nth-child(2) { animation-delay: 0.1s; }
+.waveform-bar:nth-child(3) { animation-delay: 0.2s; }
+.waveform-bar:nth-child(4) { animation-delay: 0.3s; }
+.waveform-bar:nth-child(5) { animation-delay: 0.4s; }
+.waveform-bar:nth-child(6) { animation-delay: 0.3s; }
+.waveform-bar:nth-child(7) { animation-delay: 0.2s; }
+@keyframes wave {
+  0%,100% { height: 8px;  opacity: 0.4; }
+  50%      { height: 32px; opacity: 1;   }
+}
+
+/* ── Record button ── */
+.record-btn {
+  width: 80px; height: 80px;
+  border-radius: 50%; border: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  position: relative; transition: transform 0.2s;
+}
+.record-btn:hover  { transform: scale(1.05); }
+.record-btn.idle   { background: var(--primary); animation: pulse-idle   2s infinite; }
+.record-btn.active { background: var(--accent);  animation: pulse-active 1s infinite; }
+@keyframes pulse-idle   { 0%,100%{ box-shadow: 0 0 0 0   rgba(124,108,252,0.5); } 50%{ box-shadow: 0 0 0 16px rgba(124,108,252,0); } }
+@keyframes pulse-active { 0%,100%{ box-shadow: 0 0 0 0   rgba(252,108,143,0.5); } 50%{ box-shadow: 0 0 0 20px rgba(252,108,143,0); } }
+
+/* ── Spinner ── */
+.spinner {
+  width: 40px; height: 40px;
+  border: 3px solid var(--c-border);
+  border-top-color: var(--c-purple);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--surface2); border-radius: 3px; }
+
+/* ══════════════════════════════════════════════════
+   RESPONSIVE
+   ══════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  :root { --sidebar-w: 0px; }
+  .navbar { padding: 16px 20px; }
+  .app-content.with-sidebar {
+    margin-left: 0;
+    width: 100%;
+  }
+}

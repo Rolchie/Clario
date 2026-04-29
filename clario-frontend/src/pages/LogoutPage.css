@@ -1,0 +1,214 @@
+/* src/pages/LogoutPage.css */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800&display=swap');
+
+/* ── Page wrapper ──────────────────────────────────── */
+.lo-page {
+  min-height: 100vh;
+  background: #f7f6ff;
+  font-family: 'Poppins', 'Nunito', sans-serif;
+  color: #1a1a2e;
+  padding: 44px 36px 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Page heading ──────────────────────────────────── */
+.lo-heading {
+  margin-bottom: 28px;
+  text-align: center;
+}
+
+.lo-heading h1 {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 800;
+  color: #1a1a2e;
+  letter-spacing: -0.02em;
+}
+
+.lo-heading p {
+  margin: 6px 0 0;
+  font-size: 13.5px;
+  color: #9090b0;
+  font-weight: 500;
+}
+
+/* ── Card ──────────────────────────────────────────── */
+.lo-card {
+  background: #ffffff;
+  border: 1px solid #e8e4f8;
+  border-radius: 18px;
+  box-shadow: 0 2px 14px rgba(91, 79, 207, 0.06);
+  padding: 52px 40px 44px;
+  max-width: 490px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* ── Icon ring ─────────────────────────────────────── */
+.lo-icon-wrap {
+  position: relative;
+  width: 90px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 26px;
+}
+
+.lo-icon-ring {
+  width: 74px;
+  height: 74px;
+  border-radius: 50%;
+  background: #ede9ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Sparkle decorations */
+.lo-sparkle {
+  position: absolute;
+  color: #c4baff;
+  font-size: 13px;
+  line-height: 1;
+  user-select: none;
+}
+
+.lo-sparkle-tl { top: 4px;  left: 2px;  font-size: 11px; }
+.lo-sparkle-tr { top: 2px;  right: 0px; font-size: 14px; opacity: 0.7; }
+.lo-sparkle-bl { bottom: 6px; left: 4px;  font-size: 14px; opacity: 0.6; }
+.lo-sparkle-br { bottom: 2px; right: 2px; font-size: 11px; }
+
+/* ── Card title & subtitle ─────────────────────────── */
+.lo-card-title {
+  margin: 0 0 10px;
+  font-size: 19px;
+  font-weight: 800;
+  color: #1a1a2e;
+  letter-spacing: -0.01em;
+}
+
+.lo-card-sub {
+  margin: 0 0 28px;
+  font-size: 13.5px;
+  color: #7c78a0;
+  line-height: 1.65;
+  font-weight: 500;
+}
+
+/* ── Data-safe notice ──────────────────────────────── */
+.lo-notice {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: #f8f6ff;
+  border: 1px solid #e8e4f8;
+  border-radius: 14px;
+  padding: 16px 18px;
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+.lo-notice-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #ede9ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.lo-notice-text {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.lo-notice-text strong {
+  font-size: 13px;
+  font-weight: 800;
+  color: #1a1a2e;
+}
+
+.lo-notice-text span {
+  font-size: 12.5px;
+  color: #7c78a0;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+/* ── Actions ───────────────────────────────────────── */
+.lo-actions {
+  width: 100%;
+  display: flex;
+  gap: 14px;
+}
+
+/* Cancel */
+.lo-btn-cancel {
+  flex: 1;
+  height: 48px;
+  border: 1.5px solid #d8d2f8;
+  border-radius: 12px;
+  background: transparent;
+  color: #5b4fcf;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: border-color 0.18s, background 0.18s;
+}
+
+.lo-btn-cancel:hover {
+  border-color: #a99dff;
+  background: #f5f2ff;
+}
+
+/* Log Out */
+.lo-btn-logout {
+  flex: 1.2;
+  height: 48px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #5b4fcf, #7c6fcd);
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 6px 18px rgba(91, 79, 207, 0.28);
+  transition: transform 0.18s, box-shadow 0.18s;
+}
+
+.lo-btn-logout:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(91, 79, 207, 0.36);
+}
+
+.lo-btn-logout:active {
+  transform: translateY(0);
+}
+
+/* ── Responsive ────────────────────────────────────── */
+@media (max-width: 600px) {
+  .lo-page {
+    padding: 28px 16px 44px;
+  }
+
+  .lo-card {
+    padding: 36px 22px 32px;
+  }
+}

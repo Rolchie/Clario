@@ -1,0 +1,140 @@
+/* src/components/Topbar.css */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800&display=swap');
+
+.topbar {
+  height: 64px;
+  background: #ffffff;
+  border-bottom: 1px solid #ede9ff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+  position: sticky;
+  top: 0;
+  z-index: 80;
+  box-shadow: 0 1px 8px rgba(91, 79, 207, 0.07);
+}
+
+/* ── Left placeholder ──────────────────────────────── */
+.topbar-left {
+  flex: 1;
+}
+
+/* ── Right section ─────────────────────────────────── */
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* ── Notification button ───────────────────────────── */
+.topbar-notif-btn {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1.5px solid #ede9ff;
+  background: #ffffff;
+  color: #6b6b8d;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: border-color 0.18s, color 0.18s, background 0.18s;
+}
+
+.topbar-notif-btn:hover {
+  border-color: #a99dff;
+  color: #5b4fcf;
+  background: #f5f2ff;
+}
+
+.topbar-notif-dot {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 8px;
+  height: 8px;
+  background: #5b4fcf;
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+}
+
+/* ── User pill ─────────────────────────────────────── */
+.topbar-user-pill {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 5px 14px 5px 6px;
+  background: #ffffff;
+  border: 1.5px solid #ede9ff;
+  border-radius: 999px;
+  cursor: default;
+  transition: border-color 0.18s, background 0.18s;
+}
+
+.topbar-user-pill:hover {
+  border-color: #a99dff;
+  background: #f8f6ff;
+}
+
+/* ── Avatar circle ─────────────────────────────────── */
+.topbar-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #a99dff, #7c6fcd);
+  color: #ffffff;
+  display: grid;
+  place-items: center;
+  font-size: 12px;
+  font-weight: 900;
+  font-family: 'Poppins', sans-serif;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.topbar-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ── User name + role ──────────────────────────────── */
+.topbar-user-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.topbar-user-name {
+  font-size: 13px;
+  font-weight: 400;
+  color: #4a4870;
+  font-family: 'Nunito', 'Poppins', sans-serif;
+  line-height: 1;
+  white-space: nowrap;
+  letter-spacing: 0.01em;
+}
+
+.topbar-user-role {
+  font-size: 11px;
+  color: #9090b0;
+  font-family: 'Poppins', sans-serif;
+  line-height: 1;
+}
+
+/* ── Responsive ────────────────────────────────────── */
+@media (max-width: 760px) {
+  .topbar {
+    padding: 0 16px;
+  }
+
+  .topbar-user-name,
+  .topbar-user-role {
+    display: none;
+  }
+
+  .topbar-user-pill {
+    padding: 5px 6px;
+  }
+}
